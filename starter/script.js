@@ -29,6 +29,22 @@ When START is clicked = timer starts + first question
 */
 
 
+// Storing the questions 
+// If you don't store in an array, won't know when to write question on page 
+// Reference array with index to change to the next question - integers to progress through the array 
+
+// Build a question counter variable 
+// Purpose of this is to keep track of which question to render on the page 
+// Store all questions in one place (array), the question counter serves as the index position of the array 
+// Start at 0? First posiition of array 
+// You can choose to increment the question coutner on an event, like selecting a resonse ption 
+// Similar time counter 
+
+
+
+
+
+
 // Timer
 
    var myVar = setInterval(myTimer, 1000);
@@ -54,4 +70,11 @@ When START is clicked = timer starts + first question
      document.getElementById("title").innerHTML = "1) Inside which HTML element do we put the JavaScript?";
     }
 
+
+// button
+// Change innerhtml to be nothing for p tag 
+// final element button --> group together iwth an unoredered list 
+// put elements together (four button elements)
+// button answers need to be kept in the JS side, and then append them onto the page 
+// 
     
