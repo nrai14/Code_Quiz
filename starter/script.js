@@ -18,13 +18,31 @@ onclick         onmouseover         onmouseclick            onchange
 /* Opening page will have:
 
 Start button
-Instructions
-Leaderboard 
+
 
 When START is clicked = timer starts + first question
-    Answer chosen? Correct = sound --> next question. Wrong = sound --> timer down + next question
+    Answer chosen? Correct = sound --> next question. Wrong = sound --> timer down by 10 seconds + next question
         Continue until all questions answered or timer goes to 0
     Results then shown with final score 
         Option to write initials --> Submit on leaderboard --> also option to clear
 
 */
+
+
+// Button click 
+
+   var myVar = setInterval(myTimer, 1000);
+
+ var time = 60;
+
+    function myTimer() {
+        time--;  
+        // got to clear the function 
+        if (time <= 0) {
+            clearInterval(myVar);
+        }
+        document.getElementById("time").innerHTML = time;
+
+     }
+        
+    
