@@ -29,7 +29,7 @@ When START is clicked = timer starts + first question
 */
 
 
-// Button click 
+// Timer
 
    var myVar = setInterval(myTimer, 1000);
 
@@ -44,5 +44,14 @@ When START is clicked = timer starts + first question
         document.getElementById("time").innerHTML = time;
 
      }
-        
+
+     // need event listner for click button 
+
+// when start clicked --> first question pops up
+     document.getElementById("start").addEventListener("click", firstQuestion);
+
+    function firstQuestion () {
+     document.getElementById("title").innerHTML = "1) Inside which HTML element do we put the JavaScript?";
+    }
+
     
