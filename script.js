@@ -28,21 +28,24 @@ When START is clicked = timer starts + first question
 */
 var questions = [
   {
-    prompt: "What's your name?",
-    answer: "Nish",
-    choices: ["Nish", "Mike", "Bill", "John"],
+    prompt: "Inside which HTML element do we put the JavaScript",
+    answer: "<script>",
+    choices: ["<script>", "<js>", "javascript", "scripting"],
   },
   {
-    prompt: "What's your name?",
-    answer: "Nish",
-    choices: ["Nish", "Mike", "Bill", "John"],
+    prompt: "Where is the correct place to insert a JavaScript?",
+    answer: "<body>",
+    choices: ["<body>", "<head>", "<main>", "Both <head> and <body>"],
   },
   {
-    prompt: "What's your name?",
+    prompt: "Which event occurs when the user clicks on an HTML element?",
     answer: "Nish",
-    choices: ["Nish", "Mike", "Bill", "John"],
+    choices: ["onclick", "onmouseover", "onmouseclick", "onchange"],
   },
 ];
+
+var arr = [0, 7, 6, 3]
+ console.log(arr[1])
 
 // Storing the questions
 // If you don't store in an array, won't know when to write question on page
@@ -71,7 +74,7 @@ function startQuiz(event) {
   //seeting the ground for showing question
   event.preventDefault();
   var myVar = setInterval(myTimer, 1000);
-  
+
   function myTimer() {
   time--;
   // got to clear the function
@@ -93,11 +96,20 @@ function displayQuestion() {
   console.log("Displaying questions!");
     // target the question element for our prompt and set the text content to our current question's prompt
     var promptHolder = document.getElementById('question-title')
+
+    // Below chooses answer
+    console.log(questions[questionIndex].answer)
+
     promptHolder.textContent = questions[questionIndex].prompt
     for(let i=0; i < questions[questionIndex].choices.length; i++){
         //create a button
         //add the text 
-        questions[questionIndex].choices[i]
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.textContent = questions[questionIndex].choices[i]; // accessing position in array, need integar
+      li.append(btn);
+      document.getElementById('choices').append(li);
+      // li - putting btn inside it 
         //
     }
   //we'll figure out how to show questions autonomously
@@ -113,3 +125,22 @@ function checkAnswer(event){
 // put elements together (four button elements)
 // button answers need to be kept in the JS side, and then append them onto the page
 //
+
+
+// list
+// button
+// write choice 1, 2, 3 whatever etc 
+
+
+/* NEXT STEPS
+need validate function (+1) 
+  VALIDATE WHAT USER CLICKED = DETERMINE IF CORRECT OR NOT
+  INCORRECT = DECREMENT TIME (PRESET VALUE - 10 SECONDS)
+
+  
+
+  LOCAL STORAGE - HIGH SCORE 
+    KEY VALUE PAIR (TO BE STORED) --> USER'S INPUT WITH SCORE ACHIEVED 
+      OBJECT 
+
+*/
