@@ -30,7 +30,7 @@ var questions = [
   {
     prompt: "Inside which HTML element do we put the JavaScript",
     answer: "<script>",
-    choices: ["<script>", "<js>", "javascript", "scripting"],
+    choices: ["<script>", "<js>", "<javascript>", "<scripting>"],
   },
   {
     prompt: "Where is the correct place to insert a JavaScript?",
@@ -100,6 +100,10 @@ function displayQuestion() {
     // Below chooses answer
     console.log(questions[questionIndex].answer)
 
+    console.log(questions[0].answer)
+
+    
+
     promptHolder.textContent = questions[questionIndex].prompt
     for(let i=0; i < questions[questionIndex].choices.length; i++){
         //create a button
@@ -112,6 +116,21 @@ function displayQuestion() {
       // li - putting btn inside it 
         //
     }
+
+    document.getElementById('choices').addEventListener("click", function (event) {
+      console.log(event.target.innerText);
+
+      if (event.target.innerText === questions[questionIndex].answer) {
+        console.log("Correct!");
+
+        var correct = new Audio('./starter/assets/sfx/correct.wav');
+        correct.play();
+      }
+      else {
+        var wrong = new Audio('./starter/assets/sfx/incorrect.wav');
+        wrong.play();
+      }
+    })
   //we'll figure out how to show questions autonomously
 }
 
