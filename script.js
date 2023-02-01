@@ -39,7 +39,7 @@ var questions = [
   },
   {
     prompt: "Which event occurs when the user clicks on an HTML element?",
-    answer: "Nish",
+    answer: "onclick",
     choices: ["onclick", "onmouseover", "onmouseclick", "onchange"],
   },
 ];
@@ -63,7 +63,7 @@ var questionIndex = 0
 
 var time = 60;
 
-
+// logic ahead of displayquestion if question index does not equal questions.length then continue showing display question or take them to highscores/end quiz
 
 // need event listner for click button
 
@@ -125,19 +125,36 @@ function displayQuestion() {
 
         var correct = new Audio('./starter/assets/sfx/correct.wav');
         correct.play();
+        console.log(questionIndex);
+        nextQuestion();
       }
       else {
         var wrong = new Audio('./starter/assets/sfx/incorrect.wav');
         wrong.play();
+        console.log(questionIndex);
+        nextQuestion();
       }
     })
-  //we'll figure out how to show questions autonomously
+ 
 }
 
-function checkAnswer(event){
-    event.preventDefault()
-    console.log(event.target)
+function nextQuestion() {
+  questionIndex++;
+  // var nextQ = document.
+  document.getElementById('choices').innerHTML = "";
+  // explore how to remove descendents after selecting then use remove()
+  // nextQ.remove();
+  displayQuestion();
 }
+
+
+
+// function checkAnswer(event){
+//     event.preventDefault()
+//     console.log(event.target)
+// }
+
+
 // button
 // Change innerhtml to be nothing for p tag
 // final element button --> group together iwth an unoredered list
@@ -162,4 +179,10 @@ need validate function (+1)
     KEY VALUE PAIR (TO BE STORED) --> USER'S INPUT WITH SCORE ACHIEVED 
       OBJECT 
 
-*/ // testing 
+*/
+
+// Issue with next question not coming up/ sound of second question plays both right and wrong noise
+
+// Testing testing 
+
+//blah bla
