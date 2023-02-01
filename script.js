@@ -44,8 +44,8 @@ var questions = [
   },
 ];
 
-var arr = [0, 7, 6, 3]
- console.log(arr[1])
+var arr = [0, 7, 6, 3];
+//  console.log(arr[1])
 
 // Storing the questions
 // If you don't store in an array, won't know when to write question on page
@@ -59,7 +59,7 @@ var arr = [0, 7, 6, 3]
 // Similar time counter
 
 // Timer
-var questionIndex = 0
+var questionIndex = 0;
 
 var time = 60;
 
@@ -76,76 +76,99 @@ function startQuiz(event) {
   var myVar = setInterval(myTimer, 1000);
 
   function myTimer() {
-  time--;
-  // got to clear the function
-  if (time <= 0) {
-    clearInterval(myVar);
+    time--;
+    // got to clear the function
+    if (time <= 0 || questionIndex >= questions.length) {
+      clearInterval(myVar);
+      stopQuiz();
+    }
+    document.getElementById("time").innerHTML = time;
   }
-  document.getElementById("time").innerHTML = time;
-}
-  console.log("Starting quiz");
-  var startScreen = document.getElementById('start-screen')
-  console.log(startScreen)
-  console.log(document.getElementById('start-screen'))
-  startScreen.classList.add("hide")
-  document.getElementById('questions').classList.toggle("hide")
+  // console.log("Starting quiz");
+  var startScreen = document.getElementById("start-screen");
+  console.log(startScreen);
+  console.log(document.getElementById("start-screen"));
+  startScreen.classList.add("hide");
+  document.getElementById("questions").classList.toggle("hide");
   displayQuestion();
 }
 
 function displayQuestion() {
-  console.log("Displaying questions!");
-    // target the question element for our prompt and set the text content to our current question's prompt
-    var promptHolder = document.getElementById('question-title')
+  // console.log("Displaying questions!");
+  // target the question element for our prompt and set the text content to our current question's prompt
+  var promptHolder = document.getElementById("question-title");
 
-    // Below chooses answer
-    console.log(questions[questionIndex].answer)
+  // Below chooses answer
+  // console.log(questions[questionIndex].answer)
 
-    console.log(questions[0].answer)
-
-    
-
-    promptHolder.textContent = questions[questionIndex].prompt
-    for(let i=0; i < questions[questionIndex].choices.length; i++){
-        //create a button
-        //add the text 
-      var li = document.createElement("li");
-      var btn = document.createElement("button");
-      btn.textContent = questions[questionIndex].choices[i]; // accessing position in array, need integar
-      li.append(btn);
-      document.getElementById('choices').append(li);
-      // li - putting btn inside it 
-        //
-    }
-
-    document.getElementById('choices').addEventListener("click", function (event) {
-      console.log(event.target.innerText);
-
-      if (event.target.innerText === questions[questionIndex].answer) {
-        console.log("Correct!");
-
-        var correct = new Audio('./starter/assets/sfx/correct.wav');
-        correct.play();
-        console.log(questionIndex);
-        nextQuestion();
-      }
-      else {
-        var wrong = new Audio('./starter/assets/sfx/incorrect.wav');
-        wrong.play();
-        console.log(questionIndex);
-        nextQuestion();
-      }
-    })
- 
+  promptHolder.textContent = questions[questionIndex].prompt;
+  for (let i = 0; i < questions[questionIndex].choices.length; i++) {
+    //create a button
+    //add the text
+    var li = document.createElement("li");
+    var btn = document.createElement("button");
+    btn.textContent = questions[questionIndex].choices[i]; // accessing position in array, need integar
+    li.append(btn);
+    document.getElementById("choices").append(li);
+    // li - putting btn inside it
+    //
+  }
 }
+
+document.getElementById("choices").addEventListener("click", function (event) {
+  console.log(event.target.innerText);
+
+  if (event.target.innerText === questions[questionIndex].answer) {
+    console.log("Correct!");
+
+    var correct = new Audio("./starter/assets/sfx/correct.wav");
+    correct.play();
+    // console.log(questionIndex);
+    nextQuestion();
+  } else {
+    var wrong = new Audio("./starter/assets/sfx/incorrect.wav");
+    wrong.play();
+
+    nextQuestion();
+  }
+});
 
 function nextQuestion() {
   questionIndex++;
   // var nextQ = document.
-  document.getElementById('choices').innerHTML = "";
+  document.getElementById("choices").innerHTML = "";
+  console.log(questionIndex);
+
   // explore how to remove descendents after selecting then use remove()
   // nextQ.remove();
   displayQuestion();
 }
+
+
+function stopQuiz() {
+  document.getElementById("questions").classList.add("hide");
+  document.getElementById("end-screen").classList.toggle("hide")
+  // Final score 
+  // take them to the highscores page 
+
+
+  }
+
+  // event listener on submit button - local storage --> then send to highscore page 
+
+
+// End quiz 
+/*
+Tally score
+Stop timer
+Send to highscore html
+Ask them name + score 
+
+*/
+
+
+
+
 
 
 
@@ -154,7 +177,6 @@ function nextQuestion() {
 //     console.log(event.target)
 // }
 
-
 // button
 // Change innerhtml to be nothing for p tag
 // final element button --> group together iwth an unoredered list
@@ -162,11 +184,9 @@ function nextQuestion() {
 // button answers need to be kept in the JS side, and then append them onto the page
 //
 
-
 // list
 // button
-// write choice 1, 2, 3 whatever etc 
-
+// write choice 1, 2, 3 whatever etc
 
 /* NEXT STEPS
 need validate function (+1) 
@@ -183,6 +203,6 @@ need validate function (+1)
 
 // Issue with next question not coming up/ sound of second question plays both right and wrong noise
 
-// Testing testing 
+// Testing testing
 
 //blah bla
