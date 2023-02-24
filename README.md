@@ -33,13 +33,14 @@ Create a code quiz that contains the following requirements:
   
 ## Deployment
 
-The following is the link for the website: 
+The following is the link for the website: https://nrai14.github.io/Code_Quiz/ 
 
-The following is the link to the GitHub repo:
+The following is the link to the GitHub repo: https://github.com/nrai14/Code_Quiz 
 
 Please see screenshots of the Quiz in action: 
 
-
+![Alt text](/Quiz%201.png"Front of quiz with start button")
+![Alt text](/Quiz%202.png"First question of quiz")
 
 ## License
 
