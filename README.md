@@ -1,6 +1,6 @@
 # Code Quiz 
 
-## Overview 
+## Description
 
 As part of my journey to becoming a front-end web developer, I understand that it is very likely that I would be asked to complete a coding assessment, perhaps as part of an interview process. 
 
@@ -29,7 +29,7 @@ Create a code quiz that contains the following requirements:
 
 * The quiz should end when all questions are answered or the timer reaches 0.
 
-  * When the game ends, it should display their score and give the user the ability to save their initials and their score
+  * When the game ends, it should display their score and give the user the ability to save their initials and their score (currently working on trying to update local storage to do this)
   
 ## Deployment
 
