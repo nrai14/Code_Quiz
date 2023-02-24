@@ -39,8 +39,8 @@ The following is the link to the GitHub repo: https://github.com/nrai14/Code_Qui
 
 Please see screenshots of the Quiz in action: 
 
-![Alt text](/Quiz%201.png"Front of quiz with start button")
-![Alt text](/Quiz%202.png"First question of quiz")
+![Alt text](/Quiz1.png"Front of quiz with start button")
+![Alt text](/Quiz2.png"First question of quiz")
 
 ## License
 
